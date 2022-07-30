@@ -1,0 +1,64 @@
+<p-toast></p-toast>
+<div class="admin-page">
+    <p-card header="List Of Products " subheader="List of product available">
+  <div class="p-grid">
+            <div class="p-col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left">
+                        <p-button routerLink="/product-form"   label="New" icon="pi pi-plus" styleClass="p-button-success mr-1"></p-button>
+                        <p-button routerLink="/view-report-details"  label="View" icon="pi pi-eye" styleClass="p-button-help"></p-button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <div class="p-grid">
+           
+            <div class="p-col-12">
+
+                <p-table  [paginator]="true" [rows]="5"[value]="productArray"  responsiveLayout="scroll">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <!-- <th pSortableColumn="code">ID <p-sortIcon field="code"></p-sortIcon></th> -->
+                            <th pSortableColumn="code">P.Name <p-sortIcon field="code"></p-sortIcon></th>
+                            <th pSortableColumn="code">P.Brand <p-sortIcon field="code"></p-sortIcon></th>
+                            <th pSortableColumn="code">P.date <p-sortIcon field="code"></p-sortIcon></th>
+                            <th pSortableColumn="code">P.owner <p-sortIcon field="code"></p-sortIcon></th>
+                            <!-- <th pSortableColumn="code">P.description <p-sortIcon field="code"></p-sortIcon></th> -->
+                            <th pSortableColumn="code">P.price <p-sortIcon field="code"></p-sortIcon></th>
+                            <th pSortableColumn="code">P.Stock.Name <p-sortIcon field="code"></p-sortIcon></th>
+                            <th pSortableColumn="code">Stock.Number <p-sortIcon field="code"></p-sortIcon></th>
+                           
+                            <th>Actions</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-products>
+                        <tr>
+                         
+                           <td>{{products.data.productName}}</td>
+                           <td>{{products.data.productBrand}}</td>
+                           <td>{{products.data.productDateEntry}}</td>
+                           <td>{{products.data.productOwner}}</td>
+                           <!-- <td>{{products.data.productDescription}}</td> -->
+                           <td>{{products.data.productPrice}}</td>
+                           <td>{{products.data.productStockname.stockCategoryname}}</td>
+                           <td>{{products.data.productStockCatNumber.stockCarNumber}}</td>
+
+
+                           
+                           <td>
+                               <p-button styleClass="p-button-danger mr-1"icon="pi pi-trash" (onClick)="onDeleteProduct(products.id)"></p-button>
+                               <p-button routerLink="/product-form" styleClass="p-button-error mr-1" [queryParams]="{id:products.id}" icon="pi pi-pencil"></p-button>
+                           </td>
+                        </tr>
+                        
+                    </ng-template>
+                </p-table>
+                <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".4s" *ngIf="showSpinner"></p-progressSpinner>
+            </div>
+
+        </div>
+    </p-card>
+   
+</div>
+
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>

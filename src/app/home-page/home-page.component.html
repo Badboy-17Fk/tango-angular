@@ -1,0 +1,66 @@
+<p-toast></p-toast>
+<div class="admin-page">
+    <p-card header="Dashboard" subheader="Latest Statistical records">
+
+        <div class="grid">
+            <div class="col-3">
+                <p-card styleClass="d-orders">
+                    <div class="item">
+                    <div>
+                        <i class="pi pi-wallet"></i><br>
+                        <span class="name">Products</span>
+                    </div>
+                        <span *ngIf="productCount" class="number">{{productCount + 0}}</span>
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-3">
+                <p-card styleClass="d-users">
+                    <div class="item">
+                    <div>
+                        <i class="pi pi-user"></i><br>
+                        <span class="name">Users</span>
+                    </div>
+                        <span *ngIf="userCount" class="number">{{userCount + 0}}</span>
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-3">
+                <p-card styleClass="d-daily">
+                    <div class="item">
+                    <div>
+                        <i  class="pi pi-shopping-bag"></i><br>
+                        <span class="name">Loans</span>
+                    </div>
+                        <span *ngIf="totalCount" class="number">{{totalCount + 0}}</span>
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-3">
+                <p-card styleClass="d-dollars">
+                    <div class="item">
+                    <div>
+                        <i class="pi pi-dollar"></i><br>
+                        <span class="name">Sales</span>
+                    </div>
+                        <span class="number">$25</span>
+                    </div>
+                </p-card>
+            </div>
+        </div>
+
+    </p-card><br><br><br>
+    <p-card>
+        <highcharts-chart *ngIf="chartOptions"
+        [Highcharts]="Highcharts"
+        [options]="chartOptions"
+        style="width: 100%; height: 400px; display: block;">
+      </highcharts-chart>
+    </p-card><br><br><br>
+    <!--Weather sector management importing from app-weather
+    -admin component from angular-->
+    <!--SOH TAGNE ACHILLE IVES ICTU-1011159-->
+    <p-card>
+        <app-weather-admin></app-weather-admin>
+    </p-card>
+</div>

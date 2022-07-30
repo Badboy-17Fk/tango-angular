@@ -1,0 +1,66 @@
+<p-toast></p-toast>
+<div class="admin-page" *ngIf="loans">
+    <p-card header="List Of Products " subheader="List of product available">
+
+
+        <p-fieldset legend="Header" [toggleable]="true">
+           
+             <div class="grid">
+                
+                <div class="col-4">
+                    <h4>BorrowerName</h4>
+                    <p>{{loans.borrowerName}}</p>
+                </div>
+                <div class="col-4">
+                    <h4>DateBorrow</h4>
+                    <p>{{loans.dateBorrow}}</p>
+                </div>
+                <div class="col-4">
+                    <h4>RefundDate</h4>
+                    <p>{{loans.refundDate}}</p>
+                </div>
+                <div class="col-4">
+                    <h4>PriceBorrowed</h4>
+                    <p>{{loans.priceBorrow}}</p>
+                </div>
+                <div class="col-4">
+                    <h4>Contact</h4>
+                    <p>{{loans.contact}}</p>
+                </div>
+                <div class="col-4">
+                    <h4>Total Price</h4>
+                    <p style="color: rgb(255, 0, 0); font-weight: bold; size: 35px;">{{loans.priceBorrow * loans.quantityBorrow | currency:"XAF":"symbol"}}</p>
+                </div>
+                <div class="col-4">
+                    <h4>Quantity Borrowed</h4>
+                    <p>{{loans.quantityBorrow}}</p>
+                </div>
+              
+            </div><br><br>
+             
+        </p-fieldset><br><br>
+
+
+        <p-fieldset legend="Status-Info" [toggleable]="true">
+            <div class="grid">
+                <div class="col-4">
+                    <h4>CreatedAt</h4>
+                    <p>{{loans.createdAt.toMillis() | date}}</p>
+                </div>
+                <div class="col-6">
+                    <h4>Status</h4>
+                    <p-dropdown [options]="loansStatus" optionLabel="name" (onChange)="onStatusChanged($event)" [(ngModel)]="selectedCity" optionValue="id" optionDisabled="inactive"></p-dropdown>
+                    
+                </div>
+
+            </div>
+        </p-fieldset>
+
+    </p-card>
+            <!-- <div class="grid">
+                <div class="col">borrowerName</div>
+                <div class="col">priceBorrow</div>
+                <div class="col">quantityBorrow</div>
+            </div><br> -->
+      
+

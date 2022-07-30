@@ -1,0 +1,37 @@
+.item{
+    display: flex;
+    text-align: center;
+    color: var(--surface-a);
+    justify-content: space-between;
+
+    .pi{
+        font-size: 4em;
+        margin-bottom: 15px;
+    }
+    .name{
+        margin-top: 50px;
+        font-size: 1.4em;
+       
+        
+    }
+    .number{
+        font-size: 3em;
+    }
+    
+
+}
+
+.d-orders{
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,152,155,1) 0.1%, rgba(0,94,120,1) 94.2% );
+}
+.d-users{
+
+    background-image: radial-gradient( circle farthest-corner at -1% 57.5%,  rgba(19,170,82,1) 0%, rgba(0,102,43,1) 90% );
+
+}
+.d-dollars{
+    background-image: radial-gradient( circle 1192px at 21.5% 49.5%,  rgba(91,21,55,1) 0.1%, rgba(0,0,0,1) 100.2% );
+}
+.d-daily{
+    background-image: radial-gradient( circle 610px at 5.2% 51.6%,  rgba(5,8,114,1) 0%, rgba(7,3,53,1) 97.5% );
+}

@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfiguration: {
+    //Firebase configuration data here
+    apiKey: "AIzaSyBgMkbU2R-H8BFojt43ZCGK0N5TPc0XlEQ",
+    authDomain: "tango-admin-stock.firebaseapp.com",
+    projectId: "tango-admin-stock",
+    storageBucket: "tango-admin-stock.appspot.com",
+    messagingSenderId: "878676859415",
+    appId: "1:878676859415:web:2133157b669b4f662b5a52",
+    vapidKey:"BDs95pxcg19rYk5FUt5meDQP1hLmkv1NSWMvfU4Mqt0kKiYETceWE_iUcytszZVpFbw_aoQCjbZJCNiW4qp0lk4"
+  }
 };
 
 /*

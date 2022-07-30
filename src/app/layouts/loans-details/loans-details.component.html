@@ -1,0 +1,55 @@
+<div class="admin-page">
+    <p-card header="Loans Details Reports" subheader="details analysis">
+
+        <div class="grid" id="htmlData">
+
+
+            <p-table id="htmlData" [value]="loansDetails" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+                <ng-template pTemplate="caption">
+                    <h4 style="text-align: center; font-weight: bold; font: size 100%;">TANGO STOCK</h4>
+                </ng-template>
+            
+                <ng-template pTemplate="header">
+                    <tr>
+                        <!-- <th>Loans.Id</th> -->
+                        <th>PborrowerName</th>
+                        <th>priceBorrow</th>
+                        <th>quantityBorrow</th>
+                        <th>dateBorrow</th>
+                        <th>refundDate</th>
+                        <th>contact</th>
+                        <th>status</th>
+                        <th>Total Price</th>
+                        <th>Date Created</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-loansDet>
+                    <tr>
+                        <!-- <td>{{loansDet.id}}</td> -->
+                        <td>{{loansDet.data.borrowerName}}</td>
+                        <td>{{loansDet.data.priceBorrow}}</td>
+                        <td>{{loansDet.data.quantityBorrow}}</td>
+                        <td>{{loansDet.data.dateBorrow}}</td>
+                        <td>{{loansDet.data.refundDate}}</td>
+                        <td>{{loansDet.data.contact}}</td> 
+                        <td><p-tag styleClass="mr-2" [severity]="changeStatus[loansDet.data.status].color" [value]="changeStatus[loansDet.data.status].label" [rounded]="true"></p-tag></td>
+                        <td style="font-weight:bold ;">{{loansDet.data.priceBorrow * loansDet.data.quantityBorrow | currency:"XAF":"symbol"}}</td>
+                        <td>{{loansDet.data.createdAt.toMillis() | date}}</td>
+                    </tr>
+                </ng-template>
+            
+                <ng-template pTemplate="summary">
+                    <h4 style="text-align: center;">TANGO STOCK</h4>
+                </ng-template>
+               
+            </p-table>
+            
+            
+           
+           
+        </div><br>
+        <p-button  label="Download" icon="pi pi-download" styleClass="p-button-primary mr-1" (onClick)="LoansPDF()"></p-button>
+
+    </p-card>
+
+</div>

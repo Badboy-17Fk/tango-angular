@@ -1,0 +1,61 @@
+<p-toast></p-toast>
+
+<div class="admin-page">
+    <form [formGroup]="mycustomer" *ngIf="mycustomer">
+    <p-card header={{header}} subheader= {{subHeader}}>
+  <div class="grid mb-5">
+            <div class="col-12">
+             
+                <p-toolbar>
+                    <div class="p-toolbar-group-left"></div>
+                    <div class="p-toolbar-group-right">
+                        <p-button label= {{submitButton}} icon="pi pi-plus" [disabled]="!mycustomer.valid" styleClass="p-button-primary mr-1" (onClick)="onSubmitCustomer()"></p-button>
+                        <p-button routerLink="/customers"  label="Cancel" icon="pi pi-arrow-circle-left" styleClass="p-button-secondary"></p-button>
+                    </div>
+                </p-toolbar>
+                
+            </div>
+        </div>
+        <div class="grid">
+           
+            <div class="col-12">
+
+                
+                    <div class="card">
+                    
+                        <div class="formgrid grid">
+                            <div class="field col">
+                                <label for="firstname2">Customer Name</label>
+                                <input id="firstname2" type="text" formControlName="customerName" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                            </div>
+                            <div class="field col">
+                                <label for="lastname2">Customer Email</label>
+                                <input id="lastname2" type="email" formControlName="customerEmail" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                            </div>
+                           
+                        </div>
+                        <div class="formgrid grid">
+                            
+                            <div class="field col">
+                                <label for="firstname2">Customer Number</label>
+                                <input id="firstname2" type="number" formControlName="customerNumber" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                            </div>
+                            <div class="field col">
+                                <label for="lastname2">Customer Address</label>
+                                <input id="lastname2" type="text" formControlName="customerAddress" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                            </div>
+
+
+                        </div>
+                        
+                    </div>
+              
+            </div>
+
+        </div>
+    </p-card>
+</form>
+</div>
+
+
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>

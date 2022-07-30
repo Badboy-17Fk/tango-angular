@@ -1,0 +1,50 @@
+<div class="admin-page">
+    <p-card header="Product Details Reports" subheader="details analysis">
+
+        <div class="grid" id="htmlData">
+
+
+            <p-table id="htmlData" [value]="products" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+                <ng-template pTemplate="caption">
+                    <h4 style="text-align: center; font-weight: bold; font: size 100%;">TANGO STOCK</h4>
+                </ng-template>
+            
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>product.Id</th>
+                        <th>Product.Name</th>
+                        <th>Product.Brand</th>
+                        <th>Product.owner</th>
+                        <th>Product.Price</th>
+                        <th>category</th>
+                        <th>quantity</th>
+                        <th>Date created</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-productDetails>
+                    <tr>
+                        <td>{{productDetails.id}}</td>
+                        <td>{{productDetails.data.productName}}</td>
+                        <td>{{productDetails.data.productBrand}}</td>
+                        <td>{{productDetails.data.productOwner}}</td>
+                        <td>{{productDetails.data.productPrice}}</td>
+                        <td>{{productDetails.data.productStockname.stockCategoryname}}</td>
+                        <td>{{productDetails.data.productStockCatNumber.stockCarNumber}}</td>
+                        <td>{{productDetails.data.createdAt.toMillis() | date}}</td>
+                    </tr>
+                </ng-template>
+            
+                <ng-template pTemplate="summary">
+                    <h4 style="text-align: center;">TANGO STOCK</h4>
+                </ng-template>
+               
+            </p-table>
+            
+           
+           
+        </div><br>
+        <p-button  label="Download" icon="pi pi-download" styleClass="p-button-primary mr-1" (onClick)="openPDF()"></p-button>
+
+    </p-card>
+
+</div>

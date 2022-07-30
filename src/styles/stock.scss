@@ -1,0 +1,35 @@
+//NORMALIZE.CSS
+@import '~normalize.css/normalize.css';
+
+//BASE CONFIGURATIONS
+@import './base/colors.scss';
+@import './base/fonts.scss';
+@import './base/mixins.scss';
+
+
+
+//@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css");
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/lara-light-blue/theme.css';
+@import '~primeng/resources/primeng.min.css';
+@import './base/configuration.scss';
+@import '~primeflex/primeflex.css';
+//PAGES
+@import './app/stock/pages/home-page.scss';
+@import './app/stock/pages/product-list.scss';
+
+//SHARED
+@import './app/stock/shared/header.scss';
+@import './app/stock/shared/footer.scss';
+
+//BLOG COMPONENTS SCSS
+@import './app/blog/shell.scss';
+@import './app/blog/sidebar.scss';
+//LAYOUTS SCSS
+@import './app/layouts/weather.scss';
+
+// @import './app/layouts/stock-category.scss';
+
+@import './app/auth/login.scss';
+
+

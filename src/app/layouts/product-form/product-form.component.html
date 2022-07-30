@@ -1,0 +1,100 @@
+<p-toast></p-toast>
+<div class="admin-page">
+    <form [formGroup]="products" *ngIf="products">
+    <p-card header="{{head}} " subheader="{{sub_head}}">
+  <div class="grid mb-5">
+            <div class="col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left"></div>
+                    <div class="p-toolbar-group-right">
+                        <p-progressSpinner *ngIf="showSpinner"  [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+                        <p-button  label="{{button}}" icon="pi pi-plus" [disabled]="!products.valid" styleClass="p-button-primary mr-1" (onClick)="onSubmitProductDetails()"></p-button>
+                        <p-button routerLink="/products"  label="Cancel" icon="pi pi-arrow-circle-left" styleClass="p-button-secondary"></p-button>
+                    </div>
+                </p-toolbar>
+                
+            </div>
+        </div>
+        <div class="grid">
+           
+            <div class="col-12">
+
+               
+                    <div class="card">
+                    
+                        <div class="formgrid grid">
+                            <div class="field col">
+                                <label for="productname">Product Name</label>
+                                <input id="productname" formControlName="productName" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                            </div>
+                            <div class="field col">
+                                <label for="brand">Product Brand</label>
+                                <input id="brand" formControlName="productBrand" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                            </div>
+                           
+                        </div>
+                        <div class="formgrid grid">
+                            <div class="field col">
+                                <label for="productOwner1">Product Owner</label>
+                                <input id="productOwner1" formControlName="productOwner" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                            </div>
+                            <div class="field col">
+                                <label for="price">Product price</label>
+                                <input id="price" formControlName="productPrice" type="number" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                            </div>
+                           
+                        </div>
+                        <div class="formgrid grid">
+                            <div class="field col">
+                                <label for="product_date">Product date</label>
+                                <input id="product_date" formControlName="productDateEntry" type="date" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                            </div>
+                            <div class="field col">
+                                <label for="lastname2">Password</label>
+                                <input id="lastname2"  type="password"[placeholder]="null" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" disabled>
+                            </div>
+                           
+                        </div>
+                        <div class="formgrid grid">
+                            <div class="field col">
+                                <label for="address">Stock Description</label>
+                                <textarea id="address" formControlName="productDescription" type="text" rows="4" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
+                            </div>
+                          
+                           
+                        </div>
+                        
+                        
+                        <div class="formgrid grid">
+                            <div class="field col-6">
+                                <label for="state">Category name</label>
+                                <select id="state" formControlName="productStockname" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto">
+
+                                    <option value="" disabled>please Select </option>
+                                    <option *ngFor="let category of categoryStock" value="{{category.id}}-{{category.data.stockName}}">{{category.data.stockName}}</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="field col-6">
+                                <label for="cat_number">Category number</label>
+                                <select id="cat_number" formControlName="productStockCatNumber" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto">
+                                    <option value="" disabled>please Select </option>
+                                    <option *ngFor="let categoryNumber of categoryStock" value="{{categoryNumber.id}}-{{categoryNumber.data.stockNumber}}">{{categoryNumber.data.stockNumber}}</option>
+                                   
+                                </select>
+                            </div>
+                        </div>
+                       
+                        
+                        
+                    </div>
+               
+            </div>
+
+        </div>
+    </p-card>
+</form>
+   
+</div>
+
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>

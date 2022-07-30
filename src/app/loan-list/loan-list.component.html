@@ -1,0 +1,97 @@
+<p-toast></p-toast>
+
+<div class="admin-page">
+    <form [formGroup]="loanForm" *ngIf="loanForm">
+    <p-card header={{theHead}} subheader={{subHead}}>
+  <div class="grid mb-5">
+            <div class="col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left"></div>
+                    <div class="p-toolbar-group-right">
+                        <p-progressSpinner *ngIf="showSpinner"  [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+                        <p-button  label={{onChangeButton}} icon="pi pi-plus" [disabled]="!loanForm.valid" styleClass="p-button-primary mr-1" (onClick)="onSubmitForm()"></p-button>
+                        <p-button routerLink="/add-loans"  label="Cancel" icon="pi pi-arrow-circle-left" styleClass="p-button-secondary"></p-button>
+                    </div>
+                </p-toolbar>
+                
+            </div>
+        </div>
+        <div class="grid">
+           
+            <div class="col-12">
+
+             
+                    <div class="card">
+                        
+                        <div class="formgrid grid">
+                            <div class="field col">
+                                <label for="firstname2">Borrower.Name</label>
+                                <input id="firstname2" 
+                                  name="borrowerName" 
+                                  formControlName="borrowerName"
+                                  type="text"
+                                  class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+
+                                <div *ngIf="fc['borrowerName'].errors?.['required']">
+                                    <p-message severity="error" text="borrower name is required" *ngIf="fc['borrowerName'].touched && fc['borrowerName'].invalid" styleClass="mr-2"></p-message>  
+                                </div>
+                            </div>
+                            <div class="field col">
+                                <label for="lastname2">Product.Price</label>
+                                <input id="lastname2" formControlName="priceBorrow" type="number" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+
+                                <div *ngIf="fc['priceBorrow'].errors?.['required']">
+                                    <p-message severity="error" text="priceBorrow is required" *ngIf="fc['priceBorrow'].touched && fc['priceBorrow'].invalid" styleClass="mr-2"></p-message>  
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="formgrid grid">
+                            <div class="field col">
+                                <label for="firstname2">Quantity</label>
+                                <input id="firstname2" formControlName="quantityBorrow" type="number" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+
+
+                                <div *ngIf="fc['quantityBorrow'].errors?.['required']">
+                                    <p-message severity="error" text="quantityBorrow is required" *ngIf="fc['quantityBorrow'].touched && fc['quantityBorrow'].invalid" styleClass="mr-2"></p-message>  
+                                </div>
+                                
+                            </div>
+                            <div class="field col">
+                                <label for="lastname2">Date borrow</label>
+                                <input id="lastname2" formControlName="dateBorrow" type="date" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+
+                            </div>
+                           
+                        </div>
+                        <div class="formgrid grid">
+                            <div class="field col">
+                                <label for="firstname2">Refund date</label>
+                                <input id="firstname2"formControlName="refundDate" type="date" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+                            </div>
+                            <div class="field col">
+                                <label for="lastname2">Contact</label>
+                                <input id="lastname2" type="number" formControlName="contact" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+
+                                <div *ngIf="fc['contact'].errors?.['required']">
+                                    <p-message severity="error" text="contact is required" *ngIf="fc['contact'].touched && fc['contact'].invalid" styleClass="mr-2"></p-message>  
+                                </div>
+                            </div>
+
+                             
+                           
+                        </div>
+                        
+                    </div>
+               
+            </div>
+
+        </div>
+     
+    </p-card>
+
+</form>
+   
+</div>
+
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
